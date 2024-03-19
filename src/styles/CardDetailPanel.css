@@ -1,0 +1,23 @@
+.card-detail-panel {
+	position: sticky;
+	width: 30vw;
+	min-width: 30vw;
+	top:0;
+	right:0;
+	flex-shrink: 0;
+	border: 5px solid var(--secondary-background-color);
+	background-color: var(--tertiary-background-color);
+	height:100vh;
+	overflow-y: scroll;
+}
+
+.card-detail-panel-layout {
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+
+}
+
+.close-button {
+	background-color: transparent;
+}

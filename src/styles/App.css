@@ -1,0 +1,13 @@
+.App {
+  text-align: center;
+  font-size: calc(10px + 1vmin);
+  background-color: var(--main-background-color);
+  width: 100%;
+}
+
+:root {
+  --text-line-number: 7;
+  --main-background-color: #f0d3d3;
+  --secondary-background-color: #c59191;
+  --tertiary-background-color: #ffeaea;
+}
