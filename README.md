@@ -4,7 +4,9 @@ This project is a basic web app whose first goal was to learn the framework Reac
 
 # Features
 
-The app is a single page application (SPA) whose main feature is to display a global view of posts. Each of these posts consist of a main text, with optional media (images/videos/gifs). There is also a basic search implementation to perform text search across all posts. For better performance, the view is paginated.
+The main feature is to display a global view of posts. Each of these posts consist of a main text, with optional media (images/videos/gifs). There is also a basic search implementation to perform text search across all posts. For better performance, the view is paginated. Watch the working app below :
+
+<img src="public/Rofront_vis.gif"> 
 
 # Back-end
 
