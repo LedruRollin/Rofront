@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import { useSelector } from "react-redux";
 import { useSearchParams } from "react-router-dom";
 
 import CardView from 'components/CardView';
@@ -12,13 +13,13 @@ import { setPageNumber } from "store/pageSelector/selectPage"
 import store from 'store/store';
 
 
-function refreshPage() {
+function refreshPage(jwtToken) {
   const URLparams = new URLSearchParams(window.location.search)
   let search = URLparams.get("search") || ""
   let page = URLparams.get("page") || "1"
   
   // TODO: Avoid (see https://redux.js.org/style-guide/#avoid-dispatching-many-actions-sequentially)
-  store.dispatch(fetchSearchTargetData({"search": search, "page": Number(page)}))
+  store.dispatch(fetchSearchTargetData({"search": search, "page": Number(page), "jwtToken": jwtToken}))
   store.dispatch(setPageNumber(Number(page)))
 }  
 
@@ -26,9 +27,9 @@ function refreshPage() {
 function MainBody() {
   const [ searchParams ] = useSearchParams();
 
-  // Any detected URL search params changes will cause page reloading
   useEffect(() => {
-    refreshPage()
+    const jwtToken = localStorage.getItem("userToken");
+    refreshPage(jwtToken)
     store.dispatch(closePanel())
   }, [ searchParams ])
 

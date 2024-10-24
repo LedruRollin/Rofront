@@ -1,16 +1,14 @@
 
- .card-global {
+
+.card-content {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 2px;
   border: solid;
-  /* max-width: 400px; */
+  border-radius: 15px;
   border-color: #daaeae;
-  /* outline: 3px solid; */
-  /* outline-color: #bd9191; */
- }
+}
 
 .card-core-text {
   color: rgb(5, 5, 5);
@@ -19,7 +17,7 @@
   display: -webkit-inline-box;
   -webkit-box-orient: vertical;
   background-color: rgb(255, 255, 255);
-  border-radius: 3px;
+  border-radius: 15px;
   width: 100%;
 }
 

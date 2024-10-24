@@ -1,13 +1,12 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
-import SearchTargetAPI from "api/search_targets"
+import SearchTargetAPI from "api/searchTargets"
 
 
-// First, create the thunk
 export const fetchSearchTargetData = createAsyncThunk(
   'data/fetchSearchTargets',
   async (arg, thunkAPI) => {
     try {
-      const response = await SearchTargetAPI.getAll(arg.search, arg.page)
+      const response = await SearchTargetAPI.getAll(arg.search, arg.page, arg.jwtToken)
       if (!response.ok) {
         return thunkAPI.rejectWithValue(
           "Error " + response.status + " : " + response.statusText
@@ -53,6 +52,6 @@ const dataSlice = createSlice({
   },
 })
 
-export const { fetchSearchTargetReducer } = dataSlice.actions
+export const { fetchSearchTargetReducer } = dataSlice.actions;
 
-export default dataSlice.reducer
+export default dataSlice.reducer;

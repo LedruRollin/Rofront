@@ -9,13 +9,13 @@ function AppErrorComponent() {
       Oh no, something went wrong :{"("}
       <ul>
         <li>
-          <b>Type :</b> {error.name}
+          <b>Type :</b> Error {error.status}
         </li>
         <li>
-          <b>Message :</b> {error.message}
+          <b>Message :</b> {error.data}
         </li>
         <li>
-          <b>Stack :</b> {error.stack}
+          <b>Stack :</b> {error.error.stack}
         </li>
       </ul>
     </div>
