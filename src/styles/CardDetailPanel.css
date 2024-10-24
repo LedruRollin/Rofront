@@ -18,6 +18,51 @@
 
 }
 
-.close-button {
+#close-button {
 	background-color: transparent;
+	position: absolute;
+  right: 5px;
+  top: 5px;
+	width: 50px;
+	height: 50px;
+  opacity: 0.8;
+	border: none;
 }
+
+#close-button:hover {
+	cursor: pointer;
+}
+
+/* Draw cross */
+#close-button::before {
+	content: "";
+	position: absolute;
+	height: 3px;
+	width: 80%;
+	background-color: var(--secondary-background-color);
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%) rotate(-45deg);
+	transition: ease-out .25s all;
+}
+#close-button::after {
+	content: "";
+	position: absolute;
+	height: 3px;
+	width: 80%;
+	background-color: var(--secondary-background-color);
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%) rotate(45deg);
+	transition: ease-out .25s all;
+}
+
+/* Animate cross */
+#close-button:hover::before, #close-button:focus::before {
+	transform: translate(-50%, -50%) rotate(135deg);
+}
+
+#close-button:hover::after, #close-button:focus::after {
+	transform: translate(-50%, -50%) rotate(225deg);
+}
+

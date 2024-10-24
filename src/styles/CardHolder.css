@@ -1,4 +1,17 @@
 
-.card-holder-body {
-  column-count: 2;
+.masonry-grid {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-left: -10px;
+  width: auto;
+}
+.masonry-grid_column {
+  padding-left: 10px;
+  background-clip: padding-box;
+}
+
+/* Style your items */
+.masonry-grid_column > div {
+  margin-bottom: 10px;
 }

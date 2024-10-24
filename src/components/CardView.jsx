@@ -8,7 +8,7 @@ import CardHolder from "components/CardHolder"
 import PageSelector from 'components/PageSelector/PageSelector';
 import ErrorBar from "components/ErrorComponents/ErrorBar";
 import loadingGif from "assets/loading.gif"
-
+import { isAuthenticated } from "utils/auth";
 
 function CardView() {
 
@@ -24,6 +24,9 @@ function CardView() {
   let urlSearch = searchParams.get("search")
 
   function navigateFromSearch(textValue) {
+    if (!isAuthenticated()) {
+      navigate("/login")
+    }
     navigate({
       search: createSearchParams({
         "search": textValue
@@ -34,7 +37,6 @@ function CardView() {
   return (
     <div className="main-view">
       <SearchBar defaultInput={urlSearch} onSearchCallback={navigateFromSearch}/>
-      
       {loading && <img src={loadingGif} alt='Chargement' />}
       {errorMessage && <ErrorBar errorString={errorMessage} />}
       {(!loading && !errorMessage) && <PageSelector 
@@ -47,7 +49,7 @@ function CardView() {
       {(!loading && !errorMessage) && <PageSelector 
         dataCount={dataCount} 
         currentPage={currentPage}
-      />}
+      />}      
     </div>
   )
 }

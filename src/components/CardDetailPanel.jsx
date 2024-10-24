@@ -28,9 +28,7 @@ function CardDetailPanel() {
   // return (isOpen) ? (
     <div className='card-detail-panel'>
       <div className='card-detail-panel-layout'>
-        <div style={{display: "flex", justifyContent: "end"}}>
-          <button id="close-button" onClick={() => {dispatch(closePanel())}}> X </button>
-        </div>
+        <button id="close-button" onClick={() => {dispatch(closePanel())}}></button>
         <HighlightedText text={searchTarget.search_text} highlightCallback={text => highlight(text, searchText)}/> 
         <ul>
           <li>
@@ -56,7 +54,7 @@ function CardDetailPanel() {
         </ul>
         <div> {
           searchTarget.media.map(
-            media => <MediaDisplay key={media.id} type={media.type} file={media.file}/>
+            media => <MediaDisplay key={media.id} type={media.type} file_path={media.file_path}/>
           )
         } </div>
       </div>

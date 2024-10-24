@@ -1,23 +1,24 @@
 
 import ImageDisplay from "./ImageDisplay"
 import VideoDisplay from "./VideoDisplay"
+import ErrorMediaDisplay from "./ErrorMediaDisplay"
 import "./MediaDisplay.css"
 
 import React from "react"
 
-function getMediaCompFromType(type, file) {
+function getMediaCompFromType(type, file_path) {
   switch (type) {
     case "IMAGE":
-      return <ImageDisplay className="card-media" file={file}/>
+      return <ImageDisplay className="card-media" file={file_path}/>
     case "VIDEO":
-      return <VideoDisplay className="card-media" file={file}/>
+      return <VideoDisplay className="card-media" file={file_path}/>
     default:
-      throw new Error("Missing media type " + type)
+      return <ErrorMediaDisplay/>
   }
 }
 
-function MediaDisplay({type, file}) {
-  let mediaComponent = getMediaCompFromType(type, file)
+function MediaDisplay({type, file_path}) {
+  let mediaComponent = getMediaCompFromType(type, file_path)
   return mediaComponent
 }
 
