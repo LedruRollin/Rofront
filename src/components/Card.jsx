@@ -3,7 +3,7 @@ import { useRef, useState } from 'react';
 
 import "styles/Card.css"
 import HighlightedText from 'components/TextDisplay/HighlightedText';
-import MediaDisplay from "components/MediaDisplay/MediaDisplay"
+import MediaSlider from "components/MediaDisplay/MediaSlider"
 
 import { openPanel } from "store/sidePanel/openPanel"
 import { useDispatch } from 'react-redux';
@@ -14,9 +14,9 @@ import { useTruncatedElement } from "hooks/useTruncated"
 function Card({searchTarget, highlightCallback}) {
   
   const ref = useRef(null);  
+  const isTruncated = useTruncatedElement(ref);
   const [showBtnText, setShowBtnText] = useState("Show more");
   const [isFullTextDisplayed, setFullTextDisplayed] = useState(false);
-  const isTruncated = useTruncatedElement(ref);
   const dispatch = useDispatch()
 
   const text = searchTarget.search_text
@@ -42,12 +42,12 @@ function Card({searchTarget, highlightCallback}) {
   
 
   return (
-    <div className="card-global" onClick={handleCardClick}> 
+    <div className="card-content" onClick={handleCardClick}>
       <div className="card-core-text restricted" ref={ref}> 
         <HighlightedText text={text} highlightCallback={highlightCallback}/> 
       </div>
       {isTruncated && <button className="expand-btn" onClick={handleShowMoreClic}>{showBtnText}</button>}
-      {mediaSet && <MediaDisplay type={mediaSet[0].type} file={mediaSet[0].file}/>}
+      {mediaSet && <MediaSlider media_paths={mediaSet.map(m => m.file_path)}/>}
     </div>
   );
 }

@@ -9,7 +9,6 @@ const panelSlice = createSlice({
   },
   reducers: {
     openPanel: (state, action) => {
-      // Mutating state thanks to Redux toolkit
       state.panelOpened = true
       state.panelData = action.payload
     },
