@@ -21,7 +21,7 @@ The app retrieves data from an independent API REST (see `api` folder). The code
 
 ## Security
 
-- Add authentification
+- ~~Add authentification~~ (done, see [this PR](https://github.com/LedruRollin/Rofront/pull/1))
 - Check/sanitize input from user
 
 
