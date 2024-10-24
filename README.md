@@ -10,7 +10,7 @@ The main feature is to display a global view of posts. Each of these posts consi
 
 # Back-end
 
-The app retrieves data from an independent API REST (see `api` folder). The code relative to this backend can be found here (<em>available soon</em>).
+The app retrieves data from an independent API REST (see `api` folder). The code relative to this backend can be found [here](https://github.com/LedruRollin/Roback).
 
 # Ideas of improvement
 
